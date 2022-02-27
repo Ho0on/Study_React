@@ -1,18 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import RecoilMain from './pages/Recoil/RecoilMain';
+import ReduxMain from './pages/Redux/ReduxMain';
 
-import { Login } from './pages/HabitTracker/Login';
-import { Main } from './pages/YoutubeClone/Main';
-
-function Router() {
+const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<ReduxMain />} />
+        <Route path="/recoil" element={<RecoilMain />} />
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default Router;
