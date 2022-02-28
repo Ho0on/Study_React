@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import RecoilMain from './pages/Recoil/RecoilMain';
-import ReduxMain from './pages/Redux/ReduxMain';
+import RecoilMain from './pages/RecoilPage/RecoilMain';
+import ReduxMain from './pages/ReduxPage/ReduxMain';
 
 const Router = () => {
   return (
