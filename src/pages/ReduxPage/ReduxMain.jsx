@@ -1,15 +1,14 @@
 import React from 'react';
-import { addTodo, showComplete } from '../../redux/action/actions';
-import store from '../../redux/store';
-
-store.subscribe(() => {
-  console.log(store.getState());
-});
-store.dispatch(addTodo('dodo'));
-store.dispatch(showComplete());
+import TodoForm from './TodoForm';
+import TodoList from './TodoList';
 
 const ReduxMain = () => {
-  return <div>ReduxMain</div>;
+  return (
+    <div>
+      <TodoForm />
+      <TodoList />
+    </div>
+  );
 };
 
 export default ReduxMain;
