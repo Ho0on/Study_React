@@ -1,12 +1,12 @@
 import React from 'react';
-import TodoForm from './TodoForm';
-import TodoList from './TodoList';
+import TodoFormContainer from '../../containers/TodoFormContainer';
+import TodoListContainer from '../../containers/TodoListContainer';
 
 const ReduxMain = () => {
   return (
     <div>
-      <TodoForm />
-      <TodoList />
+      <TodoFormContainer />
+      <TodoListContainer />
     </div>
   );
 };

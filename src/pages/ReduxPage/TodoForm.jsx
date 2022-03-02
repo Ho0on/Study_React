@@ -1,14 +1,12 @@
 import React, { useRef } from 'react';
-import { useReduxDispatch } from '../../hooks/useReduxDispatch';
-import { addTodo } from '../../redux/action/actions';
 
-const TodoForm = () => {
+const TodoForm = ({ add }) => {
   const inputRef = useRef();
-  const dispatch = useReduxDispatch();
 
   const click = () => {
-    dispatch(addTodo(inputRef.current.value));
+    add(inputRef.current.value);
   };
+
   return (
     <div>
       <input type="text" ref={inputRef} />
