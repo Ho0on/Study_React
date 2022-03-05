@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   ADD_TODO,
   COMPLETE_TODO,
@@ -34,4 +35,16 @@ export const getUsersSuccess = data => {
 
 export const getUsersFail = error => {
   return { type: GET_USERS_FAIL, error };
+};
+
+export const getUsersThunk = () => {
+  return async dispatch => {
+    try {
+      dispatch(getUsersStart());
+      const res = await axios.get('https://api.github.com/users');
+      dispatch(getUsersSuccess(res.data));
+    } catch (error) {
+      dispatch(getUsersFail(error));
+    }
+  };
 };

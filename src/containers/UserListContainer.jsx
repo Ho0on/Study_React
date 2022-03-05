@@ -6,20 +6,25 @@ import {
   getUsersFail,
   getUsersStart,
   getUsersSuccess,
+  getUsersThunk,
 } from '../redux/action/actions';
 
 const UserListContainer = () => {
   const dispatch = useDispatch();
   const users = useSelector(state => state.users.data);
 
+  // const getUsers = useCallback(async () => {
+  //   try {
+  //     dispatch(getUsersStart());
+  //     const res = await axios.get('https://api.github.com/users');
+  //     dispatch(getUsersSuccess(res.data));
+  //   } catch (error) {
+  //     dispatch(getUsersFail(error));
+  //   }
+  // }, [dispatch]);
+
   const getUsers = useCallback(async () => {
-    try {
-      dispatch(getUsersStart());
-      const res = await axios.get('https://api.github.com/users');
-      dispatch(getUsersSuccess(res.data));
-    } catch (error) {
-      dispatch(getUsersFail(error));
-    }
+    dispatch(getUsersThunk());
   }, [dispatch]);
 
   return <UserList users={users} getUsers={getUsers} />;
