@@ -8,7 +8,7 @@ import {
   getUsersStart,
   getUsersSuccess,
   getUsersThunk,
-} from '../redux/action/actions';
+} from '../redux/modules/users';
 
 const UserListContainer = () => {
   const dispatch = useDispatch();
