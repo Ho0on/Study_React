@@ -2,6 +2,7 @@ import axios from 'axios';
 import {
   ADD_TODO,
   COMPLETE_TODO,
+  GET_USERS,
   GET_USERS_FAIL,
   GET_USERS_START,
   GET_USERS_SUCCESS,
@@ -46,5 +47,15 @@ export const getUsersThunk = () => {
     } catch (error) {
       dispatch(getUsersFail(error));
     }
+  };
+};
+
+export const getUsersPromise = () => {
+  return {
+    type: GET_USERS,
+    payload: async () => {
+      const res = await axios.get('https://api.github.com/users');
+      return res.data;
+    },
   };
 };

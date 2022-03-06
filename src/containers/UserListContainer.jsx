@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import UserList from '../pages/ReduxPage/UserList';
 import {
   getUsersFail,
+  getUsersPromise,
   getUsersStart,
   getUsersSuccess,
   getUsersThunk,
@@ -24,7 +25,7 @@ const UserListContainer = () => {
   // }, [dispatch]);
 
   const getUsers = useCallback(async () => {
-    dispatch(getUsersThunk());
+    dispatch(getUsersPromise());
   }, [dispatch]);
 
   return <UserList users={users} getUsers={getUsers} />;
