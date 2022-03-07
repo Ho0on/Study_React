@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { connect } from 'react-redux';
-import TodoList from '../pages/ReduxPage/TodoList';
+import TodoList from '../components/TodoList';
 
 // const mapStateToProps = state => {
 //   return {

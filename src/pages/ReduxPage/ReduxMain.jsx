@@ -1,15 +1,16 @@
 import React from 'react';
-import TodoFormContainer from '../../containers/TodoFormContainer';
-import TodoListContainer from '../../containers/TodoListContainer';
-import UserListContainer from '../../containers/UserListContainer';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import Todos from './Todos';
+import Users from './Users';
 
 const ReduxMain = () => {
   return (
-    <div>
-      <UserListContainer />
-      <TodoFormContainer />
-      <TodoListContainer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/todos" element={<Todos />} />
+      <Route path="/users" element={<Users />} />
+    </Routes>
   );
 };
 

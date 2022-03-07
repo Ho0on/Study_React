@@ -30,13 +30,25 @@ export const getUsersFail = error => {
   return { type: GET_USERS_FAIL, error };
 };
 
+const sleep = ms => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
+};
+
 // redux-thunk
 export const getUsersThunk = () => {
-  return async dispatch => {
+  return async (dispatch, getState, { history }) => {
     try {
+      console.log(history);
       dispatch(getUsersStart());
+      //sleep
+      await sleep(1000);
       const res = await axios.get('https://api.github.com/users');
       dispatch(getUsersSuccess(res.data));
+      history.push('/redux');
     } catch (error) {
       dispatch(getUsersFail(error));
     }

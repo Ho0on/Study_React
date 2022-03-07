@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import UserList from '../pages/ReduxPage/UserList';
+import UserList from '../components/UserList';
 import {
   getUsersFail,
   getUsersPromise,
@@ -25,7 +25,7 @@ const UserListContainer = () => {
   // }, [dispatch]);
 
   const getUsers = useCallback(async () => {
-    dispatch(getUsersPromise());
+    dispatch(getUsersThunk());
   }, [dispatch]);
 
   return <UserList users={users} getUsers={getUsers} />;
