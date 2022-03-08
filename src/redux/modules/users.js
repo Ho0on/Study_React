@@ -1,7 +1,6 @@
-// 액션 타입 정의
-
 import axios from 'axios';
-
+import { call, delay, put, takeEvery } from 'redux-saga/effects';
+// 액션 타입 정의
 // 깃헙 API 호출을 시작하는 것을 의미
 const GET_USERS_START = 'study_react/users/GET_USERS_START';
 
@@ -65,6 +64,32 @@ export const getUsersPromise = () => {
     },
   };
 };
+
+// redux-saga
+const GET_USRES_SAGA_START = 'GET_USRES_SAGA_START';
+
+function* getUsersSaga(action) {
+  try {
+    yield put(getUsersStart());
+    //sleep
+    yield delay(2000);
+    const res = yield call(axios.get, 'https://api.github.com/users');
+    yield put(getUsersSuccess(res.data));
+    // yield put(push('/'));
+  } catch (error) {
+    yield put(getUsersFail(error));
+  }
+}
+
+export const getUsersSagaStart = () => {
+  return {
+    type: GET_USRES_SAGA_START,
+  };
+};
+
+export function* usersSaga() {
+  yield takeEvery(GET_USRES_SAGA_START, getUsersSaga);
+}
 
 // 초기값
 const initialState = { loading: false, data: [], error: null };

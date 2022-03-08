@@ -5,6 +5,7 @@ import UserList from '../components/UserList';
 import {
   getUsersFail,
   getUsersPromise,
+  getUsersSagaStart,
   getUsersStart,
   getUsersSuccess,
   getUsersThunk,
@@ -25,7 +26,7 @@ const UserListContainer = () => {
   // }, [dispatch]);
 
   const getUsers = useCallback(async () => {
-    dispatch(getUsersThunk());
+    dispatch(getUsersSagaStart());
   }, [dispatch]);
 
   return <UserList users={users} getUsers={getUsers} />;
