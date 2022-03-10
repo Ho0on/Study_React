@@ -6,15 +6,18 @@ import { Provider } from 'react-redux';
 import Router from './Router';
 import GlobalStyle from './styles/GlobalStyle';
 import theme from './styles/theme';
+import { RecoilRoot } from 'recoil';
 
 ReactDOM.render(
   <>
     <GlobalStyle />
-    <Provider store={store}>
+    {/* <Provider store={store}> */}
+    <RecoilRoot>
       <ThemeProvider theme={theme}>
         <Router />
       </ThemeProvider>
-    </Provider>
+    </RecoilRoot>
+    {/* </Provider> */}
   </>,
   document.getElementById('root')
 );
