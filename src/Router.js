@@ -9,7 +9,7 @@ const Router = () => {
   return (
     <BrowserRouter history={history}>
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main />} />z
         <Route path="/redux/*" element={<ReduxMain />} />
         <Route path="/recoil/*" element={<RecoilMain />} />
       </Routes>

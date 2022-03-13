@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { filteredTodoListState } from '../../../recoil/TodoStore';
+import CurrentUserInfo from './CurrentUserInfo';
 import TodoItem from './TodoItem';
 import TodoListCreator from './TodoListCreator';
 import TodoListFilters from './TodoListFilters';
@@ -17,6 +18,7 @@ const TodoList = () => {
       {todoList.map(todoItem => (
         <TodoItem key={todoItem.id} item={todoItem} />
       ))}
+      <CurrentUserInfo />
     </>
   );
 };

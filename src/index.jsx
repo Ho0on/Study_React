@@ -11,13 +11,9 @@ import { RecoilRoot } from 'recoil';
 ReactDOM.render(
   <>
     <GlobalStyle />
-    {/* <Provider store={store}> */}
-    <RecoilRoot>
-      <ThemeProvider theme={theme}>
-        <Router />
-      </ThemeProvider>
-    </RecoilRoot>
-    {/* </Provider> */}
+    <ThemeProvider theme={theme}>
+      <Router />
+    </ThemeProvider>
   </>,
   document.getElementById('root')
 );
